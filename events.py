@@ -145,6 +145,9 @@ people = {
     "sophie_zhang"           : ['Botany', 'Disease Detectives', 'Astronomy', 'Dynamic Planet', 'Chemistry Lab', 'Protein Modeling', 'Boomilever', 'Ping-Pong Parachute'],
     "faiyaz_kabir"           : ['Anatomy and Physiology', 'Protein Modeling', 'Experimental Design'],
     "joshua_byun"            : ['Anatomy and Physiology', 'Astronomy', 'Chemistry Lab'],
+    "mateja_grove"           : ['Circuit Lab','Hovercraft','Electric Vehicle'],
+    "matthew_cao"            : ['Electric Vehicle','Hovercraft','Boomilever'],
+    "peyton_laird"           : ['Anatomy and Physiology','Designer Genes','Water Quality'],
 }
 
 player_list = []
@@ -188,8 +191,8 @@ for i in events_by_popularity:
     team2_pq = list(event_pq)
     team2_pq = list([item for item in team2_pq if item in set_check_for_1])
     for p in team2.players:
-             heapq.heappush(team2_pq, (-p.get_event_happiness(i), tiebreak2, p))
-             tiebreak2 += 1
+        heapq.heappush(team2_pq, (-p.get_event_happiness(i), tiebreak2, p))
+        tiebreak2 += 1
     team2.add_and_decrease(heapq.heappop(team2_pq)[2], i)
     team2.add_and_decrease(heapq.heappop(team2_pq)[2], i)
 
@@ -197,8 +200,8 @@ for i in events_by_popularity:
     team3_pq = list(event_pq)
     team3_pq = list([item for item in team2_pq if item in set_check_for_1 and item in set_check_for_2])
     for p in team3.players:
-            heapq.heappush(team3_pq, (-p.get_event_happiness(i), tiebreak3, p))
-            tiebreak3 += 1
+        heapq.heappush(team3_pq, (-p.get_event_happiness(i), tiebreak3, p))
+        tiebreak3 += 1
     team3.add_and_decrease(heapq.heappop(team3_pq)[2], i)
     team3.add_and_decrease(heapq.heappop(team3_pq)[2], i)
 
@@ -220,7 +223,8 @@ print()
 print(team3)
 
 
-
+for p in (list(set(player_list)-team1.players-team2.players-team3.players)):
+    print(p.name)
 
 
 

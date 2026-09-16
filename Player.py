@@ -156,6 +156,9 @@ class Player:
 
         return happiness/count
 
+    def __lt__(self, other):
+        return self.id < other.id
+
         
         
         

@@ -160,6 +160,7 @@ officers = {
     "mateja_grove"           : (['Circuit Lab','Hovercraft','Electric Vehicle'], 12),
     "matthew_cao"            : (['Electric Vehicle','Hovercraft','Boomilever'], 10),
     "peyton_laird"           : (['Anatomy and Physiology','Designer Genes','Water Quality'], 12),
+    "sadie_zhang"            : (['Remote Sensing', 'Forensics', 'Ping-Pong Parachute'], 11),
 }
 
 grades = {
@@ -241,9 +242,10 @@ for officer, choices in officers.items():
     team2_try = True 
     for c in choices[0]:
         if team3.events.get(c) == 0:
-            team_3_try = False
+            print(team3.events.get(c))
+            team3_try = False
         if team2.events.get(c) == 0:
-            team_2_try = False
+            team2_try = False
     if team3_try:
         for c in choices[0]:
             team3.add_and_decrease(o, c)

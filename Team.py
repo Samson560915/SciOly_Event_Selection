@@ -56,30 +56,31 @@ class Team:
             "Ping-Pong Parachute": []
             }
         self.events_players = { #holds player values
-                    "Anatomy and Physiology": [],
-                    "Botany": [],
-                    "Designer Genes": [],
-                    "Disease Detectives": [],
-                    "Water Quality": [],
-                    "Astronomy": [],
-                    "Dynamic Planet": [],
-                    "Remote Sensing": [],
-                    "Rocks and Minerals": [],
-                    "Chemistry Lab": [],
-                    "Circuit Lab": [],
-                    "Forensics": [],
-                    "Hovercraft": [],
-                    "Protein Modeling": [],
-                    "Thermodynamics": [],
-                    "Boomilever": [],
-                    "Electric Vehicle": [],
-                    "Mission Possible": [],
-                    "Wright Stuff": [],
-                    "Codebusters": [],
-                    "Engineering CAD": [],
-                    "Experimental Design": [],
-                    "Ping-Pong Parachute": []
-                    }
+            "Anatomy and Physiology": [],
+            "Botany": [],
+            "Designer Genes": [],
+            "Disease Detectives": [],
+            "Water Quality": [],
+            "Astronomy": [],
+            "Dynamic Planet": [],
+            "Remote Sensing": [],
+            "Rocks and Minerals": [],
+            "Chemistry Lab": [],
+            "Circuit Lab": [],
+            "Forensics": [],
+            "Hovercraft": [],
+            "Protein Modeling": [],
+            "Thermodynamics": [],
+            "Boomilever": [],
+            "Electric Vehicle": [],
+            "Mission Possible": [],
+            "Wright Stuff": [],
+            "Codebusters": [],
+            "Engineering CAD": [],
+            "Experimental Design": [],
+            "Ping-Pong Parachute": []
+            }
+        self.number_of_seniors = 0
 
     def get_score(self):
         total = 0
@@ -101,8 +102,10 @@ class Team:
             return True
 
     def add_and_decrease(self, p, e):
-        if len(self.players) >= 15 and p not in self.players or p in set(self.events_people.get(e)):
+        if len(self.players) >= 15 and p not in self.players or p in set(self.events_people.get(e)) or p.grade == 12 and self.number_of_seniors > 6:
             return False
+        if p.grade == 12:
+            self.number_of_seniors += 1
         self.add_player(p)
         self.decrease_event(p, e)
         return True
@@ -119,5 +122,6 @@ class Team:
                     self.decrease_event(heapq.heappop(pq)[2], key)
 
     def __str__(self):
-        return f"{self.events_people}"
+        return(f"{self.events_people}")
+
                     

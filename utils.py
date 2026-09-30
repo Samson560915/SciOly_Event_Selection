@@ -1,6 +1,7 @@
-
 def dot_product(l1, l2):
     return_value = 0
+    if len(l1) != len(l2):
+        print(len(l1), len(l2))
     for i in range(len(l1)):
         return_value += l1[i]*l2[i]
     return return_value
